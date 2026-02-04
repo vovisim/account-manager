@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import AccountComponent from '@/components/Account/AccountComponent.vue';
+import { useColorMode } from '@vueuse/core';
+
+useColorMode().value = 'dark';
 </script>
 
 <template>
-<div>
-</div>
+  <div class="container m-7">
+    <AccountComponent />
+  </div>
 </template>
-
-<style scoped></style>

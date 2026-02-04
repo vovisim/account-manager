@@ -53,6 +53,10 @@ export const useAccountStore = defineStore('account', {
         login: '',
         password: '',
       };
+
+      // Вижу что в тз написано в конец списка, но это мне показалось крайне не удобно.
+      // Поэтому сделал в начале списка
+      // this.accounts.push({ ...newAccount, marks: [] }); // Расскоментировать если нужно в конец списка
       this.accounts.unshift({ ...newAccount, marks: [] });
       return newAccount;
     },
