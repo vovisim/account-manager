@@ -12,7 +12,7 @@ export const useAccountStore = defineStore('account', {
     getAccounts(state): IAccount[] {
       return state.accounts.map((account) => ({
         ...account,
-        marks: useMark.stringify(account.marks), // тцт мы преобразуем массив меток в строку с разделителем
+        marks: useMark.stringify(account.marks ?? []), // тцт мы преобразуем массив меток в строку с разделителем
       }));
     },
   },
@@ -24,7 +24,7 @@ export const useAccountStore = defineStore('account', {
         console.error(`Account with id ${id} not found.`);
         return;
       }
-      const marksArray = useMark.parse(marks);
+      const marksArray = useMark.parse(marks ?? '');
 
       // Если тип аккаунта изменился на LDAP, сбрасываем пароль
       if (payload.type === AccountTypeEnum.LDAP) {

@@ -36,10 +36,7 @@ const isLocal = computed(() => account.type === AccountTypeEnum.LOCAL);
 const schema = computed(() =>
   toTypedSchema(
     z.object({
-      marks: z
-        .string()
-        .min(1, 'Поле не может быть пустым')
-        .max(50, 'Поле не может быть более 50 символов'),
+      marks: z.string().max(50, 'Поле не может быть более 50 символов').optional(),
       type: z.nativeEnum(AccountTypeEnum),
       login: z
         .string()
